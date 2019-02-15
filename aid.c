@@ -90,7 +90,8 @@ uint16_t aid_alloc() {
     aid_initmap();
   }
 
-  for (uint32_t word = 0; word < AID_BITMAP_LEN; word++) {
+  uint32_t word = 0;
+  for (word = 0; word < AID_BITMAP_LEN; word++) {
     int bit = ffs(aidmap[word]);
     if (bit) {
       uint16_t aid = word * sizeof(uint32_t) * 8 + (bit - 1);
